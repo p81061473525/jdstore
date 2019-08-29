@@ -1,9 +1,9 @@
 class Order < ApplicationRecord
-  efore_create :generate_token
+  before_create :generate_token
 
   def generate_token
     self.token = SecureRandom.uuid
-  end 
+  end
 
   belongs_to :user
 
