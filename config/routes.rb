@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
 
-  namespace :admin do
+   namespace :admin do
      resources :products
+   end
+
+   namespace :account do
+      resources :orders
    end
 
   resources :products do
@@ -18,7 +22,6 @@ Rails.application.routes.draw do
        post :checkout
      end
   end
-
   resources :cart_items
   resources :orders
 end
