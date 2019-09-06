@@ -40,4 +40,10 @@ Rails.application.routes.draw do
       post :apply_to_cancel
     end
   end
+
+  resources :mpg do
+    collection do
+      get 'form'
+    end
+  end
 end
