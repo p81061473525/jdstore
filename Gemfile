@@ -39,7 +39,7 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'figaro'
 gem 'fog-aws'
-gem 'newebpay-rails', git: "https://github.com/cellvinchung/newebpay-rails.git"
+# gem 'newebpay-rails', git: "https://github.com/cellvinchung/newebpay-rails.git"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
