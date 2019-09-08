@@ -12,18 +12,18 @@ class MpgController < ApplicationController
  hashKey = '12345678901234567890123456789012'
  hashIV = '1234567890123456'
 
-    merchantID = 'MS17335912' #填入你的商店號碼
-    version = '1.5'
-    respondType = 'JSON'
-    timeStamp = Time.now.to_i.to_s
-    merchantOrderNo = "Test"  + Time.now.to_i.to_s
-    amt = 100
-    itemDesc = "商品"
-    hashKey = 'fDMeXKnd5ZZSKl7j8IUsfEm2Y1N039AW' #填入你的key
-    hashIV = 'CPgWnK21LUuiszwP' #填入你的IV
+    # merchantID = 'MS17335912' #填入你的商店號碼
+    # version = '1.5'
+    # respondType = 'JSON'
+    # timeStamp = Time.now.to_i.to_s
+    # merchantOrderNo = "Test"  + Time.now.to_i.to_s
+    # amt = 100
+    # itemDesc = "商品"
+    # hashKey = 'fDMeXKnd5ZZSKl7j8IUsfEm2Y1N039AW' #填入你的key
+    # hashIV = 'CPgWnK21LUuiszwP' #填入你的IV
 
 
-      data = "MerchantID=#{merchantID}&RespondType=#{respondType}&TimeStamp=#{timeStamp}&Version=#{version}&MerchantOrderNo=#{merchantOrderNo}&Amt=#{amt}&ItemDesc=#{itemDesc}&TradeLimit=120"
+      data = "MerchantID=#{merchantID}&RespondType=#{respondType}&TimeStamp=#{timeStamp}&Version=#{version}&MerchantOrderNo=#{merchantOrderNo}&Amt=#{amt}&ItemDesc=#{itemDesc}"
 
       data = addpadding(data)
       aes = encrypt_data(data, hashKey, hashIV, 'AES-256-CBC')
@@ -49,7 +49,7 @@ class MpgController < ApplicationController
     cipher.encrypt
     cipher.key = key
     cipher.iv = iv
-    encrypted = cipher.update(data) + cipher.final
+    encrypted = cipher.update(data)
     return encrypted.unpack("H*")[0]
   end
 end
