@@ -12,7 +12,7 @@
              <li class="active">
                <%= link_to("Products", products_path) %>
              </li>
-           </ul>
+          </ul>
 
             <ul class="nav navbar-nav navbar-right">
                <li>
@@ -31,13 +31,12 @@
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu">
+
                          <% if current_user.admin? %>
                            <li>
                              <%= link_to("Admin 选单", admin_products_path ) %>
                            </li>
-                         <% end %>
-
-                          <% unless current_user.admin? %>
+                         <% else %>
                            <li>
                              <%= link_to("个人订单列表", account_orders_path ) %>
                            </li>
